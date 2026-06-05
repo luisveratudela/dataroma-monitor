@@ -73,7 +73,9 @@ def find_13f_filings(cik: str, max_results: int = 2) -> list:
 
 def get_infotable_xml(cik: str, accession: str) -> str:
     cik_int = str(int(cik))
-    idx = _get(f"{BASE}/Archives/edgar/data/{cik_int}/{accession}/index.json")
+    # SEC EDGAR requiere el formato {accession_con_guiones}-index.json
+    acc_dashed = f"{accession[:10]}-{accession[10:12]}-{accession[12:]}"
+    idx = _get(f"{BASE}/Archives/edgar/data/{cik_int}/{accession}/{acc_dashed}-index.json")
 
     # Buscar archivo infotable.xml
     name = None
@@ -202,8 +204,4 @@ def fetch_all_funds(output_dir: str = "raw/funds") -> list:
     for fid, info in FUNDS.items():
         try:
             r = fetch_fund(fid, info, output_dir)
-            if r:
-                results.append(r)
-        except Exception as e:
-            print(f"  ✗ Error en {info['name']}: {e}")
-    return results
+  
