@@ -1,16 +1,458 @@
 {
   "meta": {
-    "generated_at": "2026-06-05T16:05:10.886077+00:00",
-    "sec_filings_period": "",
+    "generated_at": "2026-06-05T16:10:31.141709+00:00",
+    "sec_filings_period": "2026-05-15",
     "dataroma_managers": 0,
-    "funds_verified": 0
+    "funds_verified": 4
   },
-  "quarter": "",
-  "totalInvestors": 0,
-  "grandPortfolioValue": "0B",
-  "consensus": [],
-  "topBuys": [],
+  "quarter": "Q2 2026",
+  "totalInvestors": 4,
+  "grandPortfolioValue": "299.66T",
+  "consensus": [
+    {
+      "ticker": "AAPL",
+      "company": "APPLE INC",
+      "sector": "Technology",
+      "owners": 5,
+      "activity": "hold",
+      "score": 75,
+      "thesis": ""
+    },
+    {
+      "ticker": "BROADCOM",
+      "company": "BROADCOM INC",
+      "sector": "Technology",
+      "owners": 2,
+      "activity": "buy",
+      "score": 50,
+      "thesis": ""
+    },
+    {
+      "ticker": "MICROSOF",
+      "company": "MICROSOFT CORP",
+      "sector": "Technology",
+      "owners": 2,
+      "activity": "buy",
+      "score": 50,
+      "thesis": ""
+    },
+    {
+      "ticker": "AMAZON C",
+      "company": "AMAZON COM INC",
+      "sector": "Cons. Discret.",
+      "owners": 3,
+      "activity": "hold",
+      "score": 45,
+      "thesis": ""
+    },
+    {
+      "ticker": "GOOGL",
+      "company": "ALPHABET INC",
+      "sector": "Comm. Services",
+      "owners": 3,
+      "activity": "hold",
+      "score": 45,
+      "thesis": ""
+    },
+    {
+      "ticker": "DAL",
+      "company": "DELTA AIR LINES INC",
+      "sector": "Industrials",
+      "owners": 1,
+      "activity": "buy",
+      "score": 35,
+      "thesis": ""
+    },
+    {
+      "ticker": "TAIWAN S",
+      "company": "TAIWAN SEMICONDUCTOR MANUFAC",
+      "sector": "Other",
+      "owners": 2,
+      "activity": "hold",
+      "score": 30,
+      "thesis": ""
+    },
+    {
+      "ticker": "ISHARES ",
+      "company": "Ishares Inc",
+      "sector": "Other",
+      "owners": 2,
+      "activity": "hold",
+      "score": 30,
+      "thesis": ""
+    },
+    {
+      "ticker": "SEA LTD",
+      "company": "SEA LTD",
+      "sector": "Other",
+      "owners": 2,
+      "activity": "hold",
+      "score": 30,
+      "thesis": ""
+    },
+    {
+      "ticker": "COUPANG ",
+      "company": "COUPANG INC",
+      "sector": "Other",
+      "owners": 2,
+      "activity": "hold",
+      "score": 30,
+      "thesis": ""
+    },
+    {
+      "ticker": "KO",
+      "company": "COCA COLA CO",
+      "sector": "Other",
+      "owners": 2,
+      "activity": "hold",
+      "score": 30,
+      "thesis": ""
+    },
+    {
+      "ticker": "BAC",
+      "company": "BANK AMERICA CORP",
+      "sector": "Other",
+      "owners": 2,
+      "activity": "hold",
+      "score": 30,
+      "thesis": ""
+    },
+    {
+      "ticker": "CHV",
+      "company": "CHEVRON CORPORATION",
+      "sector": "Energy",
+      "owners": 2,
+      "activity": "hold",
+      "score": 30,
+      "thesis": ""
+    },
+    {
+      "ticker": "DUT",
+      "company": "MOODYS CORP",
+      "sector": "Financials",
+      "owners": 2,
+      "activity": "hold",
+      "score": 30,
+      "thesis": ""
+    },
+    {
+      "ticker": "META PLA",
+      "company": "META PLATFORMS INC",
+      "sector": "Comm. Services",
+      "owners": 2,
+      "activity": "hold",
+      "score": 30,
+      "thesis": ""
+    },
+    {
+      "ticker": "NATERA I",
+      "company": "Natera Inc",
+      "sector": "Other",
+      "owners": 1,
+      "activity": "hold",
+      "score": 15,
+      "thesis": ""
+    },
+    {
+      "ticker": "INSMED I",
+      "company": "Insmed Inc",
+      "sector": "Other",
+      "owners": 1,
+      "activity": "hold",
+      "score": 15,
+      "thesis": ""
+    },
+    {
+      "ticker": "INVESCO ",
+      "company": "Invesco Exchange Traded Fd T",
+      "sector": "Other",
+      "owners": 1,
+      "activity": "hold",
+      "score": 15,
+      "thesis": ""
+    },
+    {
+      "ticker": "YPF SOCI",
+      "company": "Ypf Sociedad Anonima",
+      "sector": "Other",
+      "owners": 1,
+      "activity": "hold",
+      "score": 15,
+      "thesis": ""
+    },
+    {
+      "ticker": "BBB FOOD",
+      "company": "Bbb Foods Inc",
+      "sector": "Other",
+      "owners": 1,
+      "activity": "hold",
+      "score": 15,
+      "thesis": ""
+    },
+    {
+      "ticker": "ALCOA CO",
+      "company": "Alcoa Corp",
+      "sector": "Other",
+      "owners": 1,
+      "activity": "hold",
+      "score": 15,
+      "thesis": ""
+    },
+    {
+      "ticker": "NEWAMSTE",
+      "company": "Newamsterdam Pharma Company",
+      "sector": "Other",
+      "owners": 1,
+      "activity": "hold",
+      "score": 15,
+      "thesis": ""
+    },
+    {
+      "ticker": "STMICROE",
+      "company": "Stmicroelectronics N V",
+      "sector": "Other",
+      "owners": 1,
+      "activity": "hold",
+      "score": 15,
+      "thesis": ""
+    },
+    {
+      "ticker": "WOODWARD",
+      "company": "Woodward Inc",
+      "sector": "Other",
+      "owners": 1,
+      "activity": "hold",
+      "score": 15,
+      "thesis": ""
+    },
+    {
+      "ticker": "TEVA PHA",
+      "company": "Teva Pharmaceutical Inds Ltd",
+      "sector": "Other",
+      "owners": 1,
+      "activity": "hold",
+      "score": 15,
+      "thesis": ""
+    },
+    {
+      "ticker": "ROKU INC",
+      "company": "Roku Inc",
+      "sector": "Other",
+      "owners": 1,
+      "activity": "hold",
+      "score": 15,
+      "thesis": ""
+    },
+    {
+      "ticker": "STATE ST",
+      "company": "State Str Spdr S&P 500 Etf T",
+      "sector": "Other",
+      "owners": 1,
+      "activity": "hold",
+      "score": 15,
+      "thesis": ""
+    },
+    {
+      "ticker": "OPTION C",
+      "company": "Option Care Health Inc",
+      "sector": "Other",
+      "owners": 1,
+      "activity": "hold",
+      "score": 15,
+      "thesis": ""
+    },
+    {
+      "ticker": "AXP",
+      "company": "AMERICAN EXPRESS CO",
+      "sector": "Financials",
+      "owners": 1,
+      "activity": "hold",
+      "score": 15,
+      "thesis": ""
+    },
+    {
+      "ticker": "OCCIDENT",
+      "company": "OCCIDENTAL PETE CORP",
+      "sector": "Energy",
+      "owners": 1,
+      "activity": "hold",
+      "score": 15,
+      "thesis": ""
+    }
+  ],
+  "topBuys": [
+    {
+      "ticker": "DAL",
+      "company": "DELTA AIR LINES INC",
+      "fund": "Berkshire Hathaway",
+      "value": 2646532635000,
+      "activity": "new",
+      "delta": null
+    },
+    {
+      "ticker": "MICROSOF",
+      "company": "MICROSOFT CORP",
+      "fund": "Pershing Square",
+      "value": 2092970053000,
+      "activity": "new",
+      "delta": null
+    },
+    {
+      "ticker": "GOOG",
+      "company": "ALPHABET INC",
+      "fund": "Berkshire Hathaway",
+      "value": 1028454775000,
+      "activity": "new",
+      "delta": null
+    },
+    {
+      "ticker": "MERCADOL",
+      "company": "MERCADOLIBRE INC",
+      "fund": "Tiger Global",
+      "value": 233428074000,
+      "activity": "new",
+      "delta": null
+    },
+    {
+      "ticker": "LUMENTUM",
+      "company": "LUMENTUM HLDGS INC",
+      "fund": "Tiger Global",
+      "value": 96137568000,
+      "activity": "new",
+      "delta": null
+    },
+    {
+      "ticker": "EQUIPMEN",
+      "company": "EQUIPMENTSHARE COM INC",
+      "fund": "Tiger Global",
+      "value": 93287389000,
+      "activity": "new",
+      "delta": null
+    },
+    {
+      "ticker": "INTEL CO",
+      "company": "INTEL CORP",
+      "fund": "Tiger Global",
+      "value": 72315831000,
+      "activity": "new",
+      "delta": null
+    },
+    {
+      "ticker": "M",
+      "company": "MACYS INC",
+      "fund": "Berkshire Hathaway",
+      "value": 30067914000,
+      "activity": "new",
+      "delta": null
+    },
+    {
+      "ticker": "ROBINHOO",
+      "company": "ROBINHOOD VENTURES FD I",
+      "fund": "Tiger Global",
+      "value": 10616000000,
+      "activity": "new",
+      "delta": null
+    },
+    {
+      "ticker": "PAYPAY C",
+      "company": "PAYPAY CORP",
+      "fund": "Tiger Global",
+      "value": 8536000000,
+      "activity": "new",
+      "delta": null
+    }
+  ],
   "topSells": [],
-  "sectors": [],
-  "investors": []
+  "sectors": [
+    {
+      "name": "Other",
+      "pct": 38.0,
+      "flow": "+573.6B",
+      "trend": "buy"
+    },
+    {
+      "name": "Technology",
+      "pct": 21.4,
+      "flow": "+2093.0B",
+      "trend": "buy"
+    },
+    {
+      "name": "Financials",
+      "pct": 18.9,
+      "flow": "+0.0B",
+      "trend": "neutral"
+    },
+    {
+      "name": "Energy",
+      "pct": 11.6,
+      "flow": "+0.0B",
+      "trend": "neutral"
+    },
+    {
+      "name": "Comm. Services",
+      "pct": 7.7,
+      "flow": "+1028.5B",
+      "trend": "buy"
+    },
+    {
+      "name": "Cons. Discret.",
+      "pct": 1.5,
+      "flow": "+0.0B",
+      "trend": "neutral"
+    },
+    {
+      "name": "Industrials",
+      "pct": 0.9,
+      "flow": "+2646.5B",
+      "trend": "buy"
+    },
+    {
+      "name": "Healthcare",
+      "pct": 0.0,
+      "flow": "+0.0B",
+      "trend": "neutral"
+    }
+  ],
+  "investors": [
+    {
+      "name": "Berkshire Hathaway",
+      "aum": "$263096B",
+      "period": "2026-05-15",
+      "top3": [
+        "AXP",
+        "KO",
+        "AAPL"
+      ]
+    },
+    {
+      "name": "Tiger Global",
+      "aum": "$22845B",
+      "period": "2026-05-15",
+      "top3": [
+        "GOOGL",
+        "NVIDIA C",
+        "AMAZON C"
+      ]
+    },
+    {
+      "name": "Pershing Square",
+      "aum": "$13714B",
+      "period": "2026-05-15",
+      "top3": [
+        "BROOKFIE",
+        "AMAZON C",
+        "UBER TEC"
+      ]
+    },
+    {
+      "name": "Duquesne Family Office",
+      "aum": "$3B",
+      "period": "2026-05-15",
+      "top3": [
+        "NATERA I",
+        "INSMED I",
+        "TAIWAN S"
+      ]
+    }
+  ]
 }
