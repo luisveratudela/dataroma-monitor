@@ -1,59 +1,16 @@
 {
   "meta": {
-    "generated_at": "2026-06-05T00:00:00Z",
-    "sec_filings_period": "2026-03-31",
-    "dataroma_managers": 82,
-    "funds_verified": 9
+    "generated_at": "2026-06-05T15:37:43.778536+00:00",
+    "sec_filings_period": "",
+    "dataroma_managers": 0,
+    "funds_verified": 0
   },
-  "quarter": "Q1 2026",
-  "totalInvestors": 82,
-  "grandPortfolioValue": "1,070B",
-  "consensus": [
-    { "ticker": "AAPL",  "company": "Apple Inc",           "sector": "Technology",    "owners": 31, "activity": "hold", "score": 95, "thesis": "Berkshire lo mantiene en 22% del portfolio. Ecosistema + recompras masivas." },
-    { "ticker": "GOOGL", "company": "Alphabet",             "sector": "Comm. Services","owners": 26, "activity": "buy",  "score": 91, "thesis": "Buffett compró $11B — su mayor apuesta individual en una década. Bridgewater y Third Point también." },
-    { "ticker": "MSFT",  "company": "Microsoft",            "sector": "Technology",    "owners": 24, "activity": "buy",  "score": 87, "thesis": "Ackman abrió $2.09B (15.3% de Pershing). Tiger Global recortó — lecturas opuestas." },
-    { "ticker": "AMZN",  "company": "Amazon",               "sector": "Cons. Discret.","owners": 22, "activity": "buy",  "score": 83, "thesis": "Loeb lo convirtió en su #1 (19.4% de Third Point). Pershing y Greenwoods también." },
-    { "ticker": "META",  "company": "Meta Platforms",       "sector": "Comm. Services","owners": 20, "activity": "buy",  "score": 79, "thesis": "Ackman y Tiger Global añadieron. Bridgewater compró." },
-    { "ticker": "NVDA",  "company": "NVIDIA",               "sector": "Technology",    "owners": 18, "activity": "hold", "score": 74, "thesis": "Third Point recortó $521M. Consenso mixto en semis." },
-    { "ticker": "BAC",   "company": "Bank of America",      "sector": "Financials",    "owners": 17, "activity": "hold", "score": 71, "thesis": "Berkshire mantiene posición grande." },
-    { "ticker": "KO",    "company": "Coca-Cola",            "sector": "Cons. Staples", "owners": 16, "activity": "hold", "score": 68, "thesis": "Berkshire core. Pricing power defensivo." },
-    { "ticker": "OXY",   "company": "Occidental",           "sector": "Energy",        "owners": 14, "activity": "hold", "score": 63, "thesis": "Berkshire mantuvo. Energía sector más vendido neto." },
-    { "ticker": "AXP",   "company": "American Express",     "sector": "Financials",    "owners": 14, "activity": "hold", "score": 62, "thesis": "Berkshire core. Modelo distinto a V/MA." },
-    { "ticker": "DAL",   "company": "Delta Air Lines",      "sector": "Industrials",   "owners": 10, "activity": "buy",  "score": 55, "thesis": "Berkshire abrió $2.65B en Q1." },
-    { "ticker": "AVGO",  "company": "Broadcom",             "sector": "Technology",    "owners": 10, "activity": "buy",  "score": 54, "thesis": "Bridgewater añadió en Q1." }
-  ],
-  "topBuys": [
-    { "ticker": "GOOGL", "company": "Alphabet",      "fund": "Berkshire Hathaway", "value": 11000000000, "activity": "new" },
-    { "ticker": "MSFT",  "company": "Microsoft",     "fund": "Pershing Square",    "value": 2090000000,  "activity": "new" },
-    { "ticker": "DAL",   "company": "Delta",         "fund": "Berkshire Hathaway", "value": 2650000000,  "activity": "new" },
-    { "ticker": "META",  "company": "Meta Platforms","fund": "Pershing Square",    "value": 1800000000,  "activity": "added" },
-    { "ticker": "AMZN",  "company": "Amazon",        "fund": "Third Point",        "value": 1500000000,  "activity": "added" }
-  ],
-  "topSells": [
-    { "ticker": "V",     "company": "Visa",          "fund": "Berkshire Hathaway", "value": 3200000000,  "activity": "sold" },
-    { "ticker": "MA",    "company": "Mastercard",    "fund": "Berkshire Hathaway", "value": 2000000000,  "activity": "sold" },
-    { "ticker": "NVDA",  "company": "NVIDIA",        "fund": "Third Point",        "value": 521000000,   "activity": "reduced" },
-    { "ticker": "OXY",   "company": "Occidental",    "fund": "Bridgewater",        "value": 400000000,   "activity": "reduced" }
-  ],
-  "sectors": [
-    { "name": "Technology",     "pct": 31.2, "flow": "-0.6B", "trend": "neutral" },
-    { "name": "Financials",     "pct": 24.8, "flow": "-8.9B", "trend": "sell" },
-    { "name": "Comm. Services", "pct": 11.4, "flow": "+8.4B", "trend": "buy" },
-    { "name": "Cons. Staples",  "pct": 9.1,  "flow": "-0.3B", "trend": "neutral" },
-    { "name": "Energy",         "pct": 7.4,  "flow": "-7.0B", "trend": "sell" },
-    { "name": "Healthcare",     "pct": 6.9,  "flow": "-2.7B", "trend": "sell" },
-    { "name": "Industrials",    "pct": 5.8,  "flow": "+0.9B", "trend": "buy" },
-    { "name": "Cons. Discret.", "pct": 3.4,  "flow": "-3.9B", "trend": "sell" }
-  ],
-  "investors": [
-    { "name": "Berkshire Hathaway",    "aum": "$271B", "period": "2026-03-31", "top3": ["AAPL","BAC","AXP"] },
-    { "name": "Bridgewater",           "aum": "$124B", "period": "2026-03-31", "top3": ["SPY","GLD","GOOGL"] },
-    { "name": "Tiger Global",          "aum": "$43B",  "period": "2026-03-31", "top3": ["MSFT","META","AMZN"] },
-    { "name": "Pershing Square",       "aum": "$18B",  "period": "2026-03-31", "top3": ["MSFT","AMZN","HHH"] },
-    { "name": "Third Point",           "aum": "$11B",  "period": "2026-03-31", "top3": ["AMZN","MSFT","META"] },
-    { "name": "Duquesne Family Office","aum": "$3B",   "period": "2026-03-31", "top3": ["NVDA","MSFT","META"] },
-    { "name": "Appaloosa Management",  "aum": "$8B",   "period": "2026-03-31", "top3": ["META","GOOGL","AMZN"] },
-    { "name": "Baupost Group",         "aum": "$12B",  "period": "2026-03-31", "top3": ["GOOGL","MSFT","AAPL"] },
-    { "name": "Gotham Asset Mgmt",     "aum": "$2B",   "period": "2026-03-31", "top3": ["AAPL","MSFT","AMZN"] }
-  ]
+  "quarter": "",
+  "totalInvestors": 0,
+  "grandPortfolioValue": "0B",
+  "consensus": [],
+  "topBuys": [],
+  "topSells": [],
+  "sectors": [],
+  "investors": []
 }
