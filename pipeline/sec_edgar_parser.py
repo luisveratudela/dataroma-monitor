@@ -9,8 +9,12 @@ import time
 import xml.etree.ElementTree as ET
 import requests
 
+# data.sec.gov  -> API de submissions (JSON)
+# www.sec.gov   -> Archives (XMLs de los filings)
+SUBMISSIONS_BASE = "https://data.sec.gov"
+ARCHIVES_BASE    = "https://www.sec.gov"
+
 HEADERS = {"User-Agent": "DataromaMonitor contact@example.com"}
-BASE = "https://data.sec.gov"
 
 FUNDS = {
     "berkshire":    {"name": "Berkshire Hathaway",     "cik": "0001067983"},
@@ -21,7 +25,6 @@ FUNDS = {
     "duquesne":     {"name": "Duquesne Family Office",  "cik": "0001536411"},
     "appaloosa":    {"name": "Appaloosa Management",    "cik": "0001070154"},
     "gotham":       {"name": "Gotham Asset Management", "cik": "0001579982"},
-    "baupost":      {"name": "Baupost Group",           "cik": "0000930028"},
 }
 
 
@@ -34,7 +37,6 @@ def _get(url, as_json=True):
     return r.text
 
 
-# CUSIP -> Ticker via OpenFIGI (gratis, sin API key)
 _figi_cache = {}
 
 def cusip_to_ticker(cusip):
@@ -60,21 +62,21 @@ def cusip_to_ticker(cusip):
 
 
 def find_13f_filings(cik, max_results=2):
-    """Devuelve los ultimos N filings 13F-HR ordenados por fecha desc."""
-    data = _get("{}/submissions/CIK{}.json".format(BASE, cik))
+    url = "{}/submissions/CIK{}.json".format(SUBMISSIONS_BASE, cik)
+    data = _get(url)
     recent = data.get("filings", {}).get("recent", {})
 
     filings = []
-    forms = recent.get("form", [])
+    forms      = recent.get("form", [])
     accessions = recent.get("accessionNumber", [])
-    dates = recent.get("filingDate", [])
+    dates      = recent.get("filingDate", [])
 
     for i, form in enumerate(forms):
         if form in ("13F-HR", "13F-HR/A"):
             filings.append({
                 "accession": accessions[i].replace("-", ""),
-                "date": dates[i],
-                "form": form,
+                "date":      dates[i],
+                "form":      form,
             })
 
     filings.sort(key=lambda x: x["date"], reverse=True)
@@ -82,13 +84,14 @@ def find_13f_filings(cik, max_results=2):
 
 
 def get_infotable_xml(cik, accession):
-    cik_int = str(int(cik))
-    # SEC EDGAR requiere el formato {accession_con_guiones}-index.json
+    cik_int    = str(int(cik))
     acc_dashed = "{}-{}-{}".format(accession[:10], accession[10:12], accession[12:])
-    url = "{}/Archives/edgar/data/{}/{}/{}-index.json".format(BASE, cik_int, accession, acc_dashed)
-    idx = _get(url)
 
-    # Buscar archivo infotable.xml
+    idx_url = "{}/Archives/edgar/data/{}/{}/{}-index.json".format(
+        ARCHIVES_BASE, cik_int, accession, acc_dashed
+    )
+    idx = _get(idx_url)
+
     name = None
     for item in idx.get("directory", {}).get("item", []):
         n = item.get("name", "").lower()
@@ -106,12 +109,13 @@ def get_infotable_xml(cik, accession):
     if name is None:
         raise ValueError("infotable no encontrado: CIK {} / {}".format(cik, accession))
 
-    file_url = "{}/Archives/edgar/data/{}/{}/{}".format(BASE, cik_int, accession, name)
-    return _get(file_url, as_json=False)
+    xml_url = "{}/Archives/edgar/data/{}/{}/{}".format(
+        ARCHIVES_BASE, cik_int, accession, name
+    )
+    return _get(xml_url, as_json=False)
 
 
 def parse_infotable(xml_text):
-    """Parsea infotable.xml -> lista de holdings."""
     xml_text = xml_text.replace('xmlns="', 'xmlns_removed="')
     root = ET.fromstring(xml_text)
 
@@ -146,7 +150,7 @@ def parse_infotable(xml_text):
 
 
 def fetch_fund(fund_id, info, output_dir):
-    cik = info["cik"]
+    cik  = info["cik"]
     name = info["name"]
     print("  -> {} (CIK {})".format(name, cik))
 
@@ -156,12 +160,11 @@ def fetch_fund(fund_id, info, output_dir):
         return None
 
     latest = filings[0]
-    prev = filings[1] if len(filings) > 1 else None
+    prev   = filings[1] if len(filings) > 1 else None
 
     xml_curr = get_infotable_xml(cik, latest["accession"])
     curr_raw = parse_infotable(xml_curr)
 
-    # Shares del trimestre anterior para calcular delta
     prev_shares = {}
     if prev is not None:
         try:
@@ -172,16 +175,12 @@ def fetch_fund(fund_id, info, output_dir):
             print("    No se pudo obtener trimestre anterior: {}".format(e))
 
     total_value = sum(h["value"] for h in curr_raw)
-    holdings = []
+    holdings    = []
 
     for h in curr_raw:
-        cusip = h["cusip"]
+        cusip  = h["cusip"]
         ticker = cusip_to_ticker(cusip) or h["company"][:8].upper()
-
-        if total_value > 0:
-            pct = h["value"] / total_value * 100
-        else:
-            pct = 0.0
+        pct    = (h["value"] / total_value * 100) if total_value > 0 else 0.0
 
         ps = prev_shares.get(cusip)
         if ps is None:
@@ -193,8 +192,6 @@ def fetch_fund(fund_id, info, output_dir):
         else:
             activity = "hold"
 
-        delta = h["shares"] - ps if ps is not None else None
-
         holdings.append({
             "ticker":        ticker,
             "cusip":         cusip,
@@ -203,7 +200,7 @@ def fetch_fund(fund_id, info, output_dir):
             "shares":        h["shares"],
             "portfolio_pct": round(pct, 2),
             "prev_shares":   ps,
-            "delta_shares":  delta,
+            "delta_shares":  (h["shares"] - ps) if ps is not None else None,
             "activity":      activity,
             "put_call":      h["put_call"],
         })
@@ -225,7 +222,7 @@ def fetch_fund(fund_id, info, output_dir):
     with open(out_path, "w") as f:
         json.dump(result, f, indent=2)
 
-    print("    {} holdings · AUM ~${:.1f}B · {}".format(
+    print("    {} holdings | AUM ~${:.1f}B | {}".format(
         len(holdings), total_value / 1e9, latest["date"]
     ))
     return result
