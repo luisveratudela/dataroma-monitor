@@ -1,0 +1,61 @@
+name: Update Superinvestors Data
+
+on:
+  # Trimestral: ~2 semanas después del deadline de 13F (15 Feb, 15 May, 15 Aug, 15 Nov)
+  schedule:
+    - cron: '0 10 15 2,5,8,11 *'
+
+  # Trigger manual desde GitHub UI (Actions → Run workflow)
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: 'Modo de ejecución'
+        required: false
+        default: 'full'
+        type: choice
+        options:
+          - full
+          - only-edgar
+          - only-dataroma
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write   # necesario para hacer git push
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Instalar dependencias
+        run: |
+          pip install -r requirements.txt
+          playwright install chromium --with-deps
+
+      - name: Ejecutar pipeline
+        run: |
+          MODE="${{ github.event.inputs.mode || 'full' }}"
+          if [ "$MODE" = "only-edgar" ]; then
+            python pipeline/run.py --only-edgar
+          elif [ "$MODE" = "only-dataroma" ]; then
+            python pipeline/run.py --only-dataroma
+          else
+            python pipeline/run.py
+          fi
+
+      - name: Commit data.json actualizado
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add output/data.json
+          # Solo commitear si hubo cambios
+          git diff --staged --quiet || \
+            git commit -m "data: update $(date +'%Y-%m-%d') [bot]"
+          git push
