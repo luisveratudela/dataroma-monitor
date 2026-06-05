@@ -5,12 +5,11 @@ API publica, sin autenticacion. Rate limit: 10 req/seg.
 """
 import json
 import os
+import re
 import time
 import xml.etree.ElementTree as ET
 import requests
 
-# data.sec.gov  -> API de submissions (JSON)
-# www.sec.gov   -> Archives (XMLs de los filings)
 SUBMISSIONS_BASE = "https://data.sec.gov"
 ARCHIVES_BASE    = "https://www.sec.gov"
 
@@ -28,10 +27,13 @@ FUNDS = {
 }
 
 
-def _get(url, as_json=True):
+def _get(url, as_json=True, raise_on_error=True):
     time.sleep(0.12)
     r = requests.get(url, headers=HEADERS, timeout=30)
-    r.raise_for_status()
+    if raise_on_error:
+        r.raise_for_status()
+    elif not r.ok:
+        return None
     if as_json:
         return r.json()
     return r.text
@@ -84,35 +86,83 @@ def find_13f_filings(cik, max_results=2):
 
 
 def get_infotable_xml(cik, accession):
+    """
+    Intenta obtener el infotable.xml con multiples estrategias:
+    1. Nombres comunes directos
+    2. JSON index (data.sec.gov)
+    3. HTML index (www.sec.gov)
+    """
     cik_int    = str(int(cik))
     acc_dashed = "{}-{}-{}".format(accession[:10], accession[10:12], accession[12:])
+    base_path  = "{}/Archives/edgar/data/{}/{}".format(ARCHIVES_BASE, cik_int, accession)
 
-    idx_url = "{}/Archives/edgar/data/{}/{}/{}-index.json".format(
-        ARCHIVES_BASE, cik_int, accession, acc_dashed
-    )
-    idx = _get(idx_url)
+    # Estrategia 1: nombres de archivo comunes para infotable
+    common_names = [
+        "infotable.xml",
+        "form13fInfoTable.xml",
+        "13F_InfoTable.xml",
+        "13f_InfoTable.xml",
+        "informationtable.xml",
+    ]
+    for fname in common_names:
+        result = _get("{}/{}".format(base_path, fname), as_json=False, raise_on_error=False)
+        if result and "<infoTable>" in result:
+            print("    [XML encontrado: {}]".format(fname))
+            return result
 
-    name = None
-    for item in idx.get("directory", {}).get("item", []):
+    # Estrategia 2: JSON index en data.sec.gov
+    try:
+        idx_url = "https://data.sec.gov/Archives/edgar/data/{}/{}/{}-index.json".format(
+            cik_int, accession, acc_dashed
+        )
+        idx = _get(idx_url)
+        name = _find_xml_in_index(idx)
+        if name:
+            result = _get("{}/{}".format(base_path, name), as_json=False)
+            if result:
+                print("    [XML via JSON index: {}]".format(name))
+                return result
+    except Exception:
+        pass
+
+    # Estrategia 3: HTML index en www.sec.gov
+    try:
+        htm_url = "{}/Archives/edgar/data/{}/{}/{}-index.htm".format(
+            ARCHIVES_BASE, cik_int, accession, acc_dashed
+        )
+        html = _get(htm_url, as_json=False, raise_on_error=False)
+        if html:
+            links = re.findall(r'href="(/Archives/[^"]+\.xml)"', html, re.IGNORECASE)
+            for path in links:
+                if any(kw in path.lower() for kw in ("infotable", "info_table", "informationtable")):
+                    result = _get("{}{}".format(ARCHIVES_BASE, path), as_json=False)
+                    if result:
+                        print("    [XML via HTML index]")
+                        return result
+            # Fallback: primer XML que no sea primary_doc
+            for path in links:
+                if "primary" not in path.lower():
+                    result = _get("{}{}".format(ARCHIVES_BASE, path), as_json=False)
+                    if result and "<infoTable>" in result:
+                        print("    [XML via HTML index (fallback)]")
+                        return result
+    except Exception:
+        pass
+
+    raise ValueError("infotable no encontrado: CIK {} / {}".format(cik, accession))
+
+
+def _find_xml_in_index(idx):
+    items = idx.get("directory", {}).get("item", [])
+    for item in items:
         n = item.get("name", "").lower()
         if "infotable" in n and n.endswith(".xml"):
-            name = item["name"]
-            break
-
-    if name is None:
-        for item in idx.get("directory", {}).get("item", []):
-            n = item.get("name", "")
-            if n.endswith(".xml") and "primary" not in n.lower():
-                name = n
-                break
-
-    if name is None:
-        raise ValueError("infotable no encontrado: CIK {} / {}".format(cik, accession))
-
-    xml_url = "{}/Archives/edgar/data/{}/{}/{}".format(
-        ARCHIVES_BASE, cik_int, accession, name
-    )
-    return _get(xml_url, as_json=False)
+            return item["name"]
+    for item in items:
+        n = item.get("name", "")
+        if n.endswith(".xml") and "primary" not in n.lower():
+            return n
+    return None
 
 
 def parse_infotable(xml_text):
@@ -161,6 +211,7 @@ def fetch_fund(fund_id, info, output_dir):
 
     latest = filings[0]
     prev   = filings[1] if len(filings) > 1 else None
+    print("    Accession: {} ({})".format(latest["accession"], latest["date"]))
 
     xml_curr = get_infotable_xml(cik, latest["accession"])
     curr_raw = parse_infotable(xml_curr)
