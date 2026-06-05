@@ -53,8 +53,8 @@ jobs:
 
       - name: Commit data.json actualizado
         run: |
-          git config user.name  "github-actions[bot]"
+          git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add output/data.json
-          # Solo commitear si hubo cambios
-          git diff --staged --qu
+          git commit -m "data: update $(date +'%Y-%m-%d') [bot]" || echo "Sin cambios, nada que commitear"
+          git push || echo "Sin cambios, nada que pushear"
