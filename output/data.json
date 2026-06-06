@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-06-06T16:44:19.384377+00:00",
+    "generated_at": "2026-06-06T18:21:55.119759+00:00",
     "sec_filings_period": "2026-05-15",
     "dataroma_managers": 0,
     "funds_verified": 8
@@ -9,42 +9,6 @@
   "totalInvestors": 8,
   "grandPortfolioValue": "365B",
   "consensus": [
-    {
-      "ticker": "GOOGL",
-      "company": "ALPHABET INC",
-      "sector": "Comm. Services",
-      "owners": 6,
-      "activity": "buy",
-      "score": 91,
-      "thesis": ""
-    },
-    {
-      "ticker": "AVGO",
-      "company": "BROADCOM INC",
-      "sector": "Technology",
-      "owners": 5,
-      "activity": "buy",
-      "score": 83,
-      "thesis": ""
-    },
-    {
-      "ticker": "TSM",
-      "company": "TAIWAN SEMICONDUCTOR MANUFAC",
-      "sector": "Technology",
-      "owners": 5,
-      "activity": "buy",
-      "score": 83,
-      "thesis": ""
-    },
-    {
-      "ticker": "META",
-      "company": "META PLATFORMS INC",
-      "sector": "Comm. Services",
-      "owners": 5,
-      "activity": "buy",
-      "score": 83,
-      "thesis": ""
-    },
     {
       "ticker": "AMZN",
       "company": "AMAZON COM INC",
@@ -55,39 +19,12 @@
       "thesis": ""
     },
     {
-      "ticker": "GOOG",
+      "ticker": "GOOGL",
       "company": "ALPHABET INC",
       "sector": "Comm. Services",
-      "owners": 5,
-      "activity": "buy",
-      "score": 79,
-      "thesis": ""
-    },
-    {
-      "ticker": "MSFT",
-      "company": "MICROSOFT CORP",
-      "sector": "Technology",
-      "owners": 4,
-      "activity": "buy",
-      "score": 74,
-      "thesis": ""
-    },
-    {
-      "ticker": "LRCX",
-      "company": "LAM RESEARCH CORP",
-      "sector": "Other",
-      "owners": 4,
-      "activity": "buy",
-      "score": 67,
-      "thesis": ""
-    },
-    {
-      "ticker": "NTRA",
-      "company": "NATERA INC",
-      "sector": "Other",
-      "owners": 3,
-      "activity": "buy",
-      "score": 66,
+      "owners": 6,
+      "activity": "hold",
+      "score": 71,
       "thesis": ""
     },
     {
@@ -100,39 +37,39 @@
       "thesis": ""
     },
     {
-      "ticker": "WCC",
-      "company": "WESCO INTL INC",
-      "sector": "Other",
-      "owners": 3,
-      "activity": "buy",
-      "score": 61,
+      "ticker": "AVGO",
+      "company": "BROADCOM INC",
+      "sector": "Technology",
+      "owners": 5,
+      "activity": "hold",
+      "score": 63,
       "thesis": ""
     },
     {
-      "ticker": "IM8N",
-      "company": "INSMED INC",
-      "sector": "Other",
-      "owners": 3,
-      "activity": "buy",
-      "score": 57,
+      "ticker": "TSM",
+      "company": "TAIWAN SEMICONDUCTOR MANUFAC",
+      "sector": "Technology",
+      "owners": 5,
+      "activity": "hold",
+      "score": 63,
       "thesis": ""
     },
     {
-      "ticker": "AON PLC",
-      "company": "AON PLC",
-      "sector": "Other",
-      "owners": 3,
-      "activity": "buy",
-      "score": 56,
+      "ticker": "META",
+      "company": "META PLATFORMS INC",
+      "sector": "Comm. Services",
+      "owners": 5,
+      "activity": "hold",
+      "score": 63,
       "thesis": ""
     },
     {
-      "ticker": "CHV",
-      "company": "CHEVRON CORPORATION",
-      "sector": "Energy",
-      "owners": 3,
-      "activity": "buy",
-      "score": 55,
+      "ticker": "GOOG",
+      "company": "ALPHABET INC",
+      "sector": "Comm. Services",
+      "owners": 5,
+      "activity": "hold",
+      "score": 59,
       "thesis": ""
     },
     {
@@ -145,17 +82,17 @@
       "thesis": ""
     },
     {
-      "ticker": "V",
-      "company": "VISA INC",
-      "sector": "Financials",
-      "owners": 3,
-      "activity": "buy",
+      "ticker": "NVDA",
+      "company": "NVIDIA CORPORATION",
+      "sector": "Technology",
+      "owners": 4,
+      "activity": "hold",
       "score": 54,
       "thesis": ""
     },
     {
-      "ticker": "NVDA",
-      "company": "NVIDIA CORPORATION",
+      "ticker": "MSFT",
+      "company": "MICROSOFT CORP",
       "sector": "Technology",
       "owners": 4,
       "activity": "hold",
@@ -190,51 +127,6 @@
       "thesis": ""
     },
     {
-      "ticker": "AA",
-      "company": "ALCOA CORP",
-      "sector": "Other",
-      "owners": 3,
-      "activity": "buy",
-      "score": 52,
-      "thesis": ""
-    },
-    {
-      "ticker": "MU",
-      "company": "MICRON TECHNOLOGY INC",
-      "sector": "Other",
-      "owners": 3,
-      "activity": "buy",
-      "score": 51,
-      "thesis": ""
-    },
-    {
-      "ticker": "KLAC",
-      "company": "KLA CORP",
-      "sector": "Other",
-      "owners": 3,
-      "activity": "buy",
-      "score": 49,
-      "thesis": ""
-    },
-    {
-      "ticker": "T7D",
-      "company": "TRANSDIGM GROUP INC",
-      "sector": "Other",
-      "owners": 3,
-      "activity": "buy",
-      "score": 49,
-      "thesis": ""
-    },
-    {
-      "ticker": "APO",
-      "company": "APOLLO GLOBAL MGMT INC",
-      "sector": "Other",
-      "owners": 3,
-      "activity": "buy",
-      "score": 49,
-      "thesis": ""
-    },
-    {
       "ticker": "NORWEGIA",
       "company": "NORWEGIAN CRUISE LINE HLDGS",
       "sector": "Other",
@@ -244,17 +136,8 @@
       "thesis": ""
     },
     {
-      "ticker": "DAL",
-      "company": "DELTA AIR LINES INC",
-      "sector": "Industrials",
-      "owners": 3,
-      "activity": "buy",
-      "score": 48,
-      "thesis": ""
-    },
-    {
-      "ticker": "CLS",
-      "company": "CELESTICA INC",
+      "ticker": "SNDK",
+      "company": "SANDISK CORP",
       "sector": "Other",
       "owners": 3,
       "activity": "buy",
@@ -262,21 +145,138 @@
       "thesis": ""
     },
     {
-      "ticker": "SEAGATE ",
-      "company": "SEAGATE TECHNOLOGY HLDNGS PL",
+      "ticker": "LRCX",
+      "company": "LAM RESEARCH CORP",
       "sector": "Other",
-      "owners": 3,
-      "activity": "buy",
-      "score": 48,
+      "owners": 4,
+      "activity": "hold",
+      "score": 47,
       "thesis": ""
     },
     {
-      "ticker": "ASML HLD",
-      "company": "ASML HLDG NV",
+      "ticker": "LYONDELL",
+      "company": "LYONDELLBASELL INDUSTRIES NV",
       "sector": "Other",
       "owners": 3,
       "activity": "buy",
-      "score": 48,
+      "score": 47,
+      "thesis": ""
+    },
+    {
+      "ticker": "EWZ",
+      "company": "ISHARES INC",
+      "sector": "Other",
+      "owners": 2,
+      "activity": "buy",
+      "score": 47,
+      "thesis": ""
+    },
+    {
+      "ticker": "INTC",
+      "company": "INTEL CORP",
+      "sector": "Other",
+      "owners": 3,
+      "activity": "buy",
+      "score": 47,
+      "thesis": ""
+    },
+    {
+      "ticker": "AXP",
+      "company": "AMERICAN EXPRESS CO",
+      "sector": "Financials",
+      "owners": 3,
+      "activity": "hold",
+      "score": 46,
+      "thesis": ""
+    },
+    {
+      "ticker": "AAPL",
+      "company": "APPLE INC",
+      "sector": "Technology",
+      "owners": 3,
+      "activity": "hold",
+      "score": 46,
+      "thesis": ""
+    },
+    {
+      "ticker": "SPY",
+      "company": "STATE STR SPDR S&P 500 ETF T",
+      "sector": "Other",
+      "owners": 3,
+      "activity": "hold",
+      "score": 46,
+      "thesis": ""
+    },
+    {
+      "ticker": "BN",
+      "company": "BROOKFIELD CORP",
+      "sector": "Other",
+      "owners": 3,
+      "activity": "hold",
+      "score": 46,
+      "thesis": ""
+    },
+    {
+      "ticker": "NTRA",
+      "company": "NATERA INC",
+      "sector": "Other",
+      "owners": 3,
+      "activity": "hold",
+      "score": 46,
+      "thesis": ""
+    },
+    {
+      "ticker": "TFX",
+      "company": "TELEFLEX INCORPORATED",
+      "sector": "Other",
+      "owners": 2,
+      "activity": "buy",
+      "score": 45,
+      "thesis": ""
+    },
+    {
+      "ticker": "SE",
+      "company": "SEA LTD",
+      "sector": "Other",
+      "owners": 3,
+      "activity": "hold",
+      "score": 43,
+      "thesis": ""
+    },
+    {
+      "ticker": "HERBALIF",
+      "company": "HERBALIFE LTD",
+      "sector": "Other",
+      "owners": 2,
+      "activity": "buy",
+      "score": 42,
+      "thesis": ""
+    },
+    {
+      "ticker": "KO",
+      "company": "COCA COLA CO",
+      "sector": "Cons. Staples",
+      "owners": 3,
+      "activity": "hold",
+      "score": 42,
+      "thesis": ""
+    },
+    {
+      "ticker": "WCC",
+      "company": "WESCO INTL INC",
+      "sector": "Other",
+      "owners": 3,
+      "activity": "hold",
+      "score": 41,
+      "thesis": ""
+    },
+    {
+      "ticker": "HUT",
+      "company": "HUT 8 CORP",
+      "sector": "Other",
+      "owners": 2,
+      "activity": "buy",
+      "score": 41,
       "thesis": ""
     }
   ],
