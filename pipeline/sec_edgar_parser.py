@@ -21,8 +21,8 @@ FUNDS = {
     "tiger_global": {"name": "Tiger Global",            "cik": "0001167483"},
     "bridgewater":  {"name": "Bridgewater",             "cik": "0001350694"},
     "duquesne":     {"name": "Duquesne Family Office",  "cik": "0001536411"},
-    "appaloosa":    {"name": "Appaloosa Management",    "cik": "0001070154"},
-    "gotham":       {"name": "Gotham Asset Management", "cik": "0001579982"},
+    "baupost":      {"name": "Baupost Group",           "cik": "0001061768"},  # Seth Klarman
+    "gotham":       {"name": "Gotham Asset Management", "cik": "0001510387"},  # Joel Greenblatt
 }
 
 
@@ -118,6 +118,12 @@ def find_13f_filings(cik, max_results=2):
 
 # ---- XML / SGML extraction ----
 
+def _has_infotable(text):
+    """Detecta si un texto contiene un infotable, con o sin namespace prefix (ns1:infoTable)."""
+    return ('infoTable>' in text or 'informationTable>' in text or
+            'informationtable>' in text.lower())
+
+
 def _extract_xml_from_sgml(text):
     """
     Extrae infotable XML embebido en un archivo .txt SGML.
@@ -127,13 +133,15 @@ def _extract_xml_from_sgml(text):
     m = re.search(r'<XML>(.*?)</XML>', text, re.DOTALL | re.IGNORECASE)
     if m:
         xml_content = m.group(1).strip()
-        if '<infoTable>' in xml_content or '<informationTable>' in xml_content:
+        if _has_infotable(xml_content):
             return xml_content
     # Alternativa: XML directo sin wrapper
-    if '<infoTable>' in text:
+    if _has_infotable(text):
         start = text.find('<?xml')
         if start < 0:
             start = text.find('<informationTable')
+        if start < 0:
+            start = text.lower().find('<informationtable')
         if start < 0:
             start = text.find('<infoTable')
         if start >= 0:
@@ -150,7 +158,7 @@ def get_infotable_xml(cik, accession):
     for fname in ("infotable.xml", "form13fInfoTable.xml", "13F_InfoTable.xml",
                   "13f_InfoTable.xml", "informationtable.xml"):
         result = _get("{}/{}".format(base_path, fname), as_json=False, raise_on_error=False)
-        if result and ('<infoTable>' in result or '<informationTable>' in result):
+        if result and _has_infotable(result):
             print("    [XML: {}]".format(fname))
             return result
 
@@ -163,7 +171,7 @@ def get_infotable_xml(cik, accession):
         if name:
             result = _get("{}/{}".format(base_path, name), as_json=False)
             if result:
-                if '<infoTable>' in result or '<informationTable>' in result:
+                if _has_infotable(result):
                     print("    [XML via JSON index: {}]".format(name))
                     return result
                 # Puede ser SGML .txt
@@ -186,7 +194,7 @@ def get_infotable_xml(cik, accession):
                 if any(k in path.lower() for k in ("infotable", "info_table", "informationtable")):
                     result = _get("{}{}".format(ARCHIVES_BASE, path), as_json=False, raise_on_error=False)
                     if result:
-                        if '<infoTable>' in result or '<informationTable>' in result:
+                        if _has_infotable(result):
                             print("    [XML via HTML index (infotable)]")
                             return result
                         xml = _extract_xml_from_sgml(result)
@@ -198,7 +206,7 @@ def get_infotable_xml(cik, accession):
             for path in links:
                 if path.endswith('.xml') and 'primary' not in path.lower():
                     result = _get("{}{}".format(ARCHIVES_BASE, path), as_json=False, raise_on_error=False)
-                    if result and ('<infoTable>' in result or '<informationTable>' in result):
+                    if result and _has_infotable(result):
                         print("    [XML via HTML index (fallback xml)]")
                         return result
 
@@ -235,19 +243,22 @@ def _find_file_in_index(idx, extensions=(".xml",)):
 # ---- Parsing ----
 
 def parse_infotable(xml_text):
-    # Normalizar tag raiz (puede ser informationTable o infoTable)
-    xml_text = xml_text.replace('xmlns="', 'xmlns_removed="')
+    # Eliminar namespaces: tanto default xmlns="..." como prefijados xmlns:ns1="..."
+    xml_text = re.sub(r' xmlns(?::\w+)?="[^"]*"', '', xml_text)
+    # Quitar prefijos de tags: <ns1:infoTable> -> <infoTable>, </ns1:infoTable> -> </infoTable>
+    xml_text = re.sub(r'<(\w+):(\w+)', r'<\2', xml_text)
+    xml_text = re.sub(r'</(\w+):(\w+)', r'</\2', xml_text)
+
     root = ET.fromstring(xml_text)
 
     holdings = []
-    # Soportar ambos: infoTable (moderno) e informationTable (antiguo)
-    rows = list(root.iter("infoTable")) or list(root.iter("infoTable".lower()))
+    rows = list(root.iter("infoTable"))
     if not rows:
         rows = list(root.iter("informationTable"))
 
-    for row in root.iter("infoTable"):
-        def get_text(tag):
-            el = row.find(tag)
+    for row in rows:
+        def get_text(tag, _row=row):
+            el = _row.find(tag)
             if el is not None and el.text:
                 return el.text.strip()
             return ""
