@@ -12,7 +12,6 @@ import requests
 
 SUBMISSIONS_BASE = "https://data.sec.gov"
 ARCHIVES_BASE    = "https://www.sec.gov"
-
 HEADERS = {"User-Agent": "DataromaMonitor contact@example.com"}
 
 FUNDS = {
@@ -39,29 +38,39 @@ def _get(url, as_json=True, raise_on_error=True):
     return r.text
 
 
+# ---- CUSIP -> Ticker via OpenFIGI batch (10 por request, gratis) ----
+
 _figi_cache = {}
 
-def cusip_to_ticker(cusip):
-    if cusip in _figi_cache:
-        return _figi_cache[cusip]
-    try:
-        time.sleep(0.12)
-        r = requests.post(
-            "https://api.openfigi.com/v3/mapping",
-            json=[{"idType": "ID_CUSIP", "idValue": cusip}],
-            headers={"Content-Type": "application/json"},
-            timeout=15,
-        )
-        data = r.json()
-        if data and data[0].get("data"):
-            ticker = data[0]["data"][0].get("ticker", "")
-            _figi_cache[cusip] = ticker
-            return ticker
-    except Exception:
-        pass
-    _figi_cache[cusip] = ""
-    return ""
+def cusip_to_tickers_batch(cusips):
+    """Resuelve una lista de CUSIPs en tickers usando OpenFIGI batch API."""
+    unique = [c for c in dict.fromkeys(cusips) if c and c not in _figi_cache]
 
+    for i in range(0, len(unique), 10):
+        batch = unique[i:i+10]
+        try:
+            time.sleep(0.6)
+            r = requests.post(
+                "https://api.openfigi.com/v3/mapping",
+                json=[{"idType": "ID_CUSIP", "idValue": c} for c in batch],
+                headers={"Content-Type": "application/json"},
+                timeout=30,
+            )
+            data = r.json()
+            for j, cusip in enumerate(batch):
+                if j < len(data) and data[j].get("data"):
+                    _figi_cache[cusip] = data[j]["data"][0].get("ticker", "")
+                else:
+                    _figi_cache[cusip] = ""
+        except Exception as e:
+            print("    [OpenFIGI batch error: {}]".format(e))
+            for c in batch:
+                _figi_cache[c] = ""
+
+    return {c: _figi_cache.get(c, "") for c in cusips}
+
+
+# ---- Filings ----
 
 def find_13f_filings(cik, max_results=2):
     url = "{}/submissions/CIK{}.json".format(SUBMISSIONS_BASE, cik)
@@ -86,35 +95,22 @@ def find_13f_filings(cik, max_results=2):
 
 
 def get_infotable_xml(cik, accession):
-    """
-    Intenta obtener el infotable.xml con multiples estrategias:
-    1. Nombres comunes directos
-    2. JSON index (data.sec.gov)
-    3. HTML index (www.sec.gov)
-    """
     cik_int    = str(int(cik))
     acc_dashed = "{}-{}-{}".format(accession[:10], accession[10:12], accession[12:])
     base_path  = "{}/Archives/edgar/data/{}/{}".format(ARCHIVES_BASE, cik_int, accession)
 
-    # Estrategia 1: nombres de archivo comunes para infotable
-    common_names = [
-        "infotable.xml",
-        "form13fInfoTable.xml",
-        "13F_InfoTable.xml",
-        "13f_InfoTable.xml",
-        "informationtable.xml",
-    ]
-    for fname in common_names:
+    # Estrategia 1: nombres de archivo comunes
+    for fname in ("infotable.xml", "form13fInfoTable.xml", "13F_InfoTable.xml",
+                  "13f_InfoTable.xml", "informationtable.xml"):
         result = _get("{}/{}".format(base_path, fname), as_json=False, raise_on_error=False)
         if result and "<infoTable>" in result:
-            print("    [XML encontrado: {}]".format(fname))
+            print("    [XML: {}]".format(fname))
             return result
 
-    # Estrategia 2: JSON index en data.sec.gov
+    # Estrategia 2: JSON index
     try:
         idx_url = "https://data.sec.gov/Archives/edgar/data/{}/{}/{}-index.json".format(
-            cik_int, accession, acc_dashed
-        )
+            cik_int, accession, acc_dashed)
         idx = _get(idx_url)
         name = _find_xml_in_index(idx)
         if name:
@@ -125,26 +121,24 @@ def get_infotable_xml(cik, accession):
     except Exception:
         pass
 
-    # Estrategia 3: HTML index en www.sec.gov
+    # Estrategia 3: HTML index
     try:
         htm_url = "{}/Archives/edgar/data/{}/{}/{}-index.htm".format(
-            ARCHIVES_BASE, cik_int, accession, acc_dashed
-        )
+            ARCHIVES_BASE, cik_int, accession, acc_dashed)
         html = _get(htm_url, as_json=False, raise_on_error=False)
         if html:
             links = re.findall(r'href="(/Archives/[^"]+\.xml)"', html, re.IGNORECASE)
             for path in links:
-                if any(kw in path.lower() for kw in ("infotable", "info_table", "informationtable")):
+                if any(k in path.lower() for k in ("infotable", "info_table", "informationtable")):
                     result = _get("{}{}".format(ARCHIVES_BASE, path), as_json=False)
                     if result:
                         print("    [XML via HTML index]")
                         return result
-            # Fallback: primer XML que no sea primary_doc
             for path in links:
                 if "primary" not in path.lower():
                     result = _get("{}{}".format(ARCHIVES_BASE, path), as_json=False)
                     if result and "<infoTable>" in result:
-                        print("    [XML via HTML index (fallback)]")
+                        print("    [XML via HTML fallback]")
                         return result
     except Exception:
         pass
@@ -199,6 +193,21 @@ def parse_infotable(xml_text):
     return holdings
 
 
+def _fix_aum_scale(holdings):
+    """
+    Sanity check: si el valor promedio por posicion supera $50B,
+    los valores probablemente estan en USD (no miles) -- corregir.
+    """
+    if not holdings:
+        return holdings
+    avg = sum(h["value"] for h in holdings) / len(holdings)
+    if avg > 50_000_000_000:
+        print("    [AUM ajustado: escala parece USD, no miles]")
+        for h in holdings:
+            h["value"] = h["value"] // 1000
+    return holdings
+
+
 def fetch_fund(fund_id, info, output_dir):
     cik  = info["cik"]
     name = info["name"]
@@ -215,6 +224,7 @@ def fetch_fund(fund_id, info, output_dir):
 
     xml_curr = get_infotable_xml(cik, latest["accession"])
     curr_raw = parse_infotable(xml_curr)
+    curr_raw = _fix_aum_scale(curr_raw)
 
     prev_shares = {}
     if prev is not None:
@@ -225,12 +235,18 @@ def fetch_fund(fund_id, info, output_dir):
         except Exception as e:
             print("    No se pudo obtener trimestre anterior: {}".format(e))
 
+    # Resolver tickers en batch (mucho mas rapido que uno por uno)
+    all_cusips = [h["cusip"] for h in curr_raw]
+    ticker_map = cusip_to_tickers_batch(all_cusips)
+    print("    Tickers resueltos: {}/{}".format(
+        sum(1 for t in ticker_map.values() if t), len(all_cusips)))
+
     total_value = sum(h["value"] for h in curr_raw)
     holdings    = []
 
     for h in curr_raw:
         cusip  = h["cusip"]
-        ticker = cusip_to_ticker(cusip) or h["company"][:8].upper()
+        ticker = ticker_map.get(cusip) or h["company"][:8].upper()
         pct    = (h["value"] / total_value * 100) if total_value > 0 else 0.0
 
         ps = prev_shares.get(cusip)
@@ -269,13 +285,11 @@ def fetch_fund(fund_id, info, output_dir):
     }
 
     os.makedirs(output_dir, exist_ok=True)
-    out_path = os.path.join(output_dir, "{}.json".format(fund_id))
-    with open(out_path, "w") as f:
+    with open(os.path.join(output_dir, "{}.json".format(fund_id)), "w") as f:
         json.dump(result, f, indent=2)
 
     print("    {} holdings | AUM ~${:.1f}B | {}".format(
-        len(holdings), total_value / 1e9, latest["date"]
-    ))
+        len(holdings), total_value / 1e9, latest["date"]))
     return result
 
 
