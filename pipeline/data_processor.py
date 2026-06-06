@@ -171,8 +171,9 @@ def process(
 
     # 3. Consenso: agregar owners por ticker entre fondos SEC
     ticker_data = defaultdict(lambda: {
-        "owners": 0, "activity": "hold", "portfolio_weight": 0.0,
+        "owners": 0, "portfolio_weight": 0.0,
         "company": "", "sector": "",
+        "votes_buy": 0, "votes_sell": 0, "votes_hold": 0,
     })
 
     for fund in funds:
@@ -182,15 +183,29 @@ def process(
             if t in seen_in_fund:
                 continue
             seen_in_fund.add(t)
-            ticker_data[t]["owners"]         += 1
-            ticker_data[t]["company"]         = h.get("company", t)
-            ticker_data[t]["sector"]          = guess_sector(h.get("company", ""))
+            ticker_data[t]["owners"]          += 1
+            ticker_data[t]["company"]          = h.get("company", t)
+            ticker_data[t]["sector"]           = guess_sector(h.get("company", ""))
             ticker_data[t]["portfolio_weight"] += h.get("portfolio_pct", 0)
             act = h.get("activity", "hold")
             if act in ("new", "added"):
-                ticker_data[t]["activity"] = "buy"
-            elif act in ("reduced", "sold") and ticker_data[t]["activity"] != "buy":
-                ticker_data[t]["activity"] = "sell"
+                ticker_data[t]["votes_buy"]  += 1
+            elif act in ("reduced", "sold"):
+                ticker_data[t]["votes_sell"] += 1
+            else:
+                ticker_data[t]["votes_hold"] += 1
+
+    # Actividad por mayoria de votos
+    for d in ticker_data.values():
+        buys  = d.pop("votes_buy")
+        sells = d.pop("votes_sell")
+        holds = d.pop("votes_hold")
+        if buys > sells and buys >= holds:
+            d["activity"] = "buy"
+        elif sells > buys and sells >= holds:
+            d["activity"] = "sell"
+        else:
+            d["activity"] = "hold"
 
     max_owners = max((d["owners"] for d in ticker_data.values()), default=1)
 
