@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-06-07T06:18:21.993911+00:00",
+    "generated_at": "2026-06-07T06:36:33.848974+00:00",
     "sec_filings_period": "2026-05-15",
     "dataroma_managers": 0,
     "funds_verified": 8
@@ -13,7 +13,7 @@
       "ticker": "AMZN",
       "company": "AMAZON COM INC",
       "sector": "Cons. Discret.",
-      "owners": 7,
+      "owners": 8,
       "activity": "hold",
       "score": 80,
       "thesis": ""
@@ -22,9 +22,9 @@
       "ticker": "GOOGL",
       "company": "ALPHABET INC",
       "sector": "Comm. Services",
-      "owners": 6,
+      "owners": 7,
       "activity": "hold",
-      "score": 71,
+      "score": 72,
       "thesis": ""
     },
     {
@@ -33,7 +33,16 @@
       "sector": "Other",
       "owners": 5,
       "activity": "hold",
-      "score": 63,
+      "score": 58,
+      "thesis": ""
+    },
+    {
+      "ticker": "CRH PLC",
+      "company": "CRH PLC",
+      "sector": "Other",
+      "owners": 5,
+      "activity": "hold",
+      "score": 58,
       "thesis": ""
     },
     {
@@ -42,7 +51,16 @@
       "sector": "Technology",
       "owners": 5,
       "activity": "hold",
-      "score": 63,
+      "score": 58,
+      "thesis": ""
+    },
+    {
+      "ticker": "MSFT",
+      "company": "MICROSOFT CORP",
+      "sector": "Technology",
+      "owners": 5,
+      "activity": "hold",
+      "score": 58,
       "thesis": ""
     },
     {
@@ -51,7 +69,7 @@
       "sector": "Technology",
       "owners": 5,
       "activity": "hold",
-      "score": 63,
+      "score": 58,
       "thesis": ""
     },
     {
@@ -60,7 +78,7 @@
       "sector": "Comm. Services",
       "owners": 5,
       "activity": "hold",
-      "score": 63,
+      "score": 58,
       "thesis": ""
     },
     {
@@ -69,7 +87,16 @@
       "sector": "Comm. Services",
       "owners": 5,
       "activity": "hold",
-      "score": 59,
+      "score": 54,
+      "thesis": ""
+    },
+    {
+      "ticker": "INTC",
+      "company": "INTEL CORP",
+      "sector": "Other",
+      "owners": 4,
+      "activity": "buy",
+      "score": 52,
       "thesis": ""
     },
     {
@@ -78,7 +105,7 @@
       "sector": "Other",
       "owners": 4,
       "activity": "buy",
-      "score": 55,
+      "score": 51,
       "thesis": ""
     },
     {
@@ -87,16 +114,16 @@
       "sector": "Technology",
       "owners": 4,
       "activity": "hold",
-      "score": 54,
+      "score": 50,
       "thesis": ""
     },
     {
-      "ticker": "MSFT",
-      "company": "MICROSOFT CORP",
-      "sector": "Technology",
+      "ticker": "BN",
+      "company": "BROOKFIELD CORP",
+      "sector": "Other",
       "owners": 4,
       "activity": "hold",
-      "score": 54,
+      "score": 50,
       "thesis": ""
     },
     {
@@ -105,16 +132,7 @@
       "sector": "Other",
       "owners": 4,
       "activity": "hold",
-      "score": 54,
-      "thesis": ""
-    },
-    {
-      "ticker": "CRH PLC",
-      "company": "CRH PLC",
-      "sector": "Other",
-      "owners": 4,
-      "activity": "hold",
-      "score": 54,
+      "score": 50,
       "thesis": ""
     },
     {
@@ -123,7 +141,7 @@
       "sector": "Industrials",
       "owners": 4,
       "activity": "hold",
-      "score": 52,
+      "score": 48,
       "thesis": ""
     },
     {
@@ -132,34 +150,7 @@
       "sector": "Other",
       "owners": 3,
       "activity": "buy",
-      "score": 48,
-      "thesis": ""
-    },
-    {
-      "ticker": "SNDK",
-      "company": "SANDISK CORP",
-      "sector": "Other",
-      "owners": 3,
-      "activity": "buy",
-      "score": 48,
-      "thesis": ""
-    },
-    {
-      "ticker": "LRCX",
-      "company": "LAM RESEARCH CORP",
-      "sector": "Other",
-      "owners": 4,
-      "activity": "hold",
-      "score": 47,
-      "thesis": ""
-    },
-    {
-      "ticker": "LYONDELL",
-      "company": "LYONDELLBASELL INDUSTRIES NV",
-      "sector": "Other",
-      "owners": 3,
-      "activity": "buy",
-      "score": 47,
+      "score": 45,
       "thesis": ""
     },
     {
@@ -168,16 +159,25 @@
       "sector": "Other",
       "owners": 2,
       "activity": "buy",
-      "score": 47,
+      "score": 45,
       "thesis": ""
     },
     {
-      "ticker": "INTC",
-      "company": "INTEL CORP",
+      "ticker": "SNDK",
+      "company": "SANDISK CORP",
       "sector": "Other",
       "owners": 3,
       "activity": "buy",
-      "score": 47,
+      "score": 44,
+      "thesis": ""
+    },
+    {
+      "ticker": "LYONDELL",
+      "company": "LYONDELLBASELL INDUSTRIES NV",
+      "sector": "Other",
+      "owners": 3,
+      "activity": "buy",
+      "score": 43,
       "thesis": ""
     },
     {
@@ -186,7 +186,7 @@
       "sector": "Financials",
       "owners": 3,
       "activity": "hold",
-      "score": 46,
+      "score": 42,
       "thesis": ""
     },
     {
@@ -195,7 +195,7 @@
       "sector": "Technology",
       "owners": 3,
       "activity": "hold",
-      "score": 46,
+      "score": 42,
       "thesis": ""
     },
     {
@@ -204,16 +204,16 @@
       "sector": "Other",
       "owners": 3,
       "activity": "hold",
-      "score": 46,
+      "score": 42,
       "thesis": ""
     },
     {
-      "ticker": "BN",
-      "company": "BROOKFIELD CORP",
+      "ticker": "LRCX",
+      "company": "LAM RESEARCH CORP",
       "sector": "Other",
-      "owners": 3,
+      "owners": 4,
       "activity": "hold",
-      "score": 46,
+      "score": 42,
       "thesis": ""
     },
     {
@@ -222,25 +222,16 @@
       "sector": "Other",
       "owners": 3,
       "activity": "hold",
-      "score": 46,
+      "score": 42,
       "thesis": ""
     },
     {
-      "ticker": "TFX",
-      "company": "TELEFLEX INCORPORATED",
+      "ticker": "AON PLC",
+      "company": "AON PLC",
       "sector": "Other",
-      "owners": 2,
-      "activity": "buy",
-      "score": 45,
-      "thesis": ""
-    },
-    {
-      "ticker": "SE",
-      "company": "SEA LTD",
-      "sector": "Other",
-      "owners": 3,
+      "owners": 4,
       "activity": "hold",
-      "score": 43,
+      "score": 40,
       "thesis": ""
     },
     {
@@ -249,7 +240,25 @@
       "sector": "Other",
       "owners": 2,
       "activity": "buy",
-      "score": 42,
+      "score": 40,
+      "thesis": ""
+    },
+    {
+      "ticker": "SE",
+      "company": "SEA LTD",
+      "sector": "Other",
+      "owners": 3,
+      "activity": "hold",
+      "score": 40,
+      "thesis": ""
+    },
+    {
+      "ticker": "V",
+      "company": "VISA INC",
+      "sector": "Financials",
+      "owners": 4,
+      "activity": "hold",
+      "score": 39,
       "thesis": ""
     },
     {
@@ -258,16 +267,7 @@
       "sector": "Cons. Staples",
       "owners": 3,
       "activity": "hold",
-      "score": 42,
-      "thesis": ""
-    },
-    {
-      "ticker": "WCC",
-      "company": "WESCO INTL INC",
-      "sector": "Other",
-      "owners": 3,
-      "activity": "hold",
-      "score": 41,
+      "score": 39,
       "thesis": ""
     },
     {
@@ -276,7 +276,7 @@
       "sector": "Other",
       "owners": 2,
       "activity": "buy",
-      "score": 41,
+      "score": 39,
       "thesis": ""
     }
   ],
@@ -352,49 +352,120 @@
       "activity": "new"
     }
   ],
-  "topSells": [],
+  "topSells": [
+    {
+      "ticker": "V",
+      "company": "VISA INC",
+      "fund": "Berkshire Hathaway",
+      "value": 2910002197,
+      "activity": "sold"
+    },
+    {
+      "ticker": "MA",
+      "company": "MASTERCARD INCORPORATED",
+      "fund": "Berkshire Hathaway",
+      "value": 2275897610,
+      "activity": "sold"
+    },
+    {
+      "ticker": "DPZ",
+      "company": "DOMINOS PIZZA INC",
+      "fund": "Berkshire Hathaway",
+      "value": 1396347000,
+      "activity": "sold"
+    },
+    {
+      "ticker": "UNH",
+      "company": "UNITEDHEALTH GROUP INC",
+      "fund": "Berkshire Hathaway",
+      "value": 1018278433,
+      "activity": "sold"
+    },
+    {
+      "ticker": "HLT",
+      "company": "HILTON WORLDWIDE HLDGS INC",
+      "fund": "Pershing Square",
+      "value": 869983734,
+      "activity": "sold"
+    },
+    {
+      "ticker": "FLUTTER ",
+      "company": "FLUTTER ENTMT PLC",
+      "fund": "Tiger Global",
+      "value": 860921672,
+      "activity": "sold"
+    },
+    {
+      "ticker": "POOL",
+      "company": "POOL CORP",
+      "fund": "Berkshire Hathaway",
+      "value": 702007444,
+      "activity": "sold"
+    },
+    {
+      "ticker": "AON PLC",
+      "company": "AON PLC",
+      "fund": "Berkshire Hathaway",
+      "value": 618314219,
+      "activity": "sold"
+    },
+    {
+      "ticker": "PCG",
+      "company": "PG&E CORP",
+      "fund": "Third Point",
+      "value": 551201000,
+      "activity": "sold"
+    },
+    {
+      "ticker": "VEEV",
+      "company": "VEEVA SYS INC",
+      "fund": "Tiger Global",
+      "value": 540328215,
+      "activity": "sold"
+    }
+  ],
   "sectors": [
     {
       "name": "Other",
-      "pct": 28.6,
-      "flow": "+3.4B",
-      "trend": "buy"
+      "pct": 30.5,
+      "flow": "-10.1B",
+      "trend": "sell"
     },
     {
       "name": "Financials",
-      "pct": 22.5,
-      "flow": "+0.2B",
-      "trend": "buy"
+      "pct": 22.6,
+      "flow": "-5.0B",
+      "trend": "sell"
     },
     {
       "name": "Technology",
-      "pct": 19.3,
-      "flow": "+2.5B",
+      "pct": 18.5,
+      "flow": "+1.6B",
       "trend": "buy"
     },
     {
       "name": "Cons. Staples",
-      "pct": 10.4,
+      "pct": 9.8,
       "flow": "+0.0B",
       "trend": "neutral"
     },
     {
       "name": "Energy",
-      "pct": 9.5,
+      "pct": 9.0,
       "flow": "+0.0B",
       "trend": "buy"
     },
     {
       "name": "Comm. Services",
-      "pct": 6.8,
-      "flow": "+1.3B",
+      "pct": 6.4,
+      "flow": "+1.1B",
       "trend": "buy"
     },
     {
       "name": "Cons. Discret.",
-      "pct": 1.8,
-      "flow": "+0.0B",
-      "trend": "neutral"
+      "pct": 1.9,
+      "flow": "-0.5B",
+      "trend": "sell"
     },
     {
       "name": "Industrials",
@@ -404,9 +475,9 @@
     },
     {
       "name": "Healthcare",
-      "pct": 0.1,
-      "flow": "+0.0B",
-      "trend": "neutral"
+      "pct": 0.4,
+      "flow": "-1.0B",
+      "trend": "sell"
     }
   ],
   "investors": [
@@ -476,8 +547,8 @@
       "period": "2026-05-15",
       "top3": [
         "NTRA",
-        "IM8N",
-        "TSM"
+        "XLF",
+        "IM8N"
       ]
     },
     {
@@ -485,9 +556,9 @@
       "aum": "$2B",
       "period": "2026-05-15",
       "top3": [
-        "AMZN",
-        "TDS",
-        "CRH PLC"
+        "PCG",
+        "MSFT",
+        "AMZN"
       ]
     }
   ]
