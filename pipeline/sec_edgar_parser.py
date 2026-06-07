@@ -300,25 +300,40 @@ def fetch_fund(fund_id, info, output_dir):
     curr_raw = parse_infotable(xml_curr)
     curr_raw = _fix_aum_scale(curr_raw)
 
-    prev_shares = {}
+    # prev_holdings: {cusip: {"shares": x, "company": y, "value": z}}
+    prev_holdings = {}
     if prev is not None:
         try:
             xml_prev = get_infotable_xml(cik, prev["accession"])
-            for h in parse_infotable(xml_prev):
-                prev_shares[h["cusip"]] = h["shares"]
+            prev_raw = parse_infotable(xml_prev)
+            prev_raw = _fix_aum_scale(prev_raw)
+            for h in prev_raw:
+                prev_holdings[h["cusip"]] = {
+                    "shares":  h["shares"],
+                    "company": h["company"],
+                    "value":   h["value"],
+                }
+            print("    Trimestre anterior: {} posiciones".format(len(prev_holdings)))
         except Exception as e:
             print("    Trimestre anterior no disponible: {}".format(e))
 
-    all_cusips  = [h["cusip"] for h in curr_raw]
+    curr_cusips = {h["cusip"] for h in curr_raw}
+
+    # CUSIPs vendidos: estaban en prev pero no en curr
+    sold_cusips = [c for c in prev_holdings if c not in curr_cusips]
+
+    all_cusips  = [h["cusip"] for h in curr_raw] + sold_cusips
     ticker_map  = cusip_to_tickers_batch(all_cusips)
     total_value = sum(h["value"] for h in curr_raw)
     holdings    = []
 
+    # Posiciones actuales
     for h in curr_raw:
         cusip  = h["cusip"]
         ticker = ticker_map.get(cusip) or h["company"][:8].upper()
         pct    = (h["value"] / total_value * 100) if total_value > 0 else 0.0
-        ps     = prev_shares.get(cusip)
+        ph     = prev_holdings.get(cusip)
+        ps     = ph["shares"] if ph else None
 
         if ps is None:
             activity = "new"
@@ -341,6 +356,26 @@ def fetch_fund(fund_id, info, output_dir):
             "activity":      activity,
             "put_call":      h["put_call"],
         })
+
+    # Posiciones vendidas: en prev, ausentes en curr
+    for cusip in sold_cusips:
+        ph     = prev_holdings[cusip]
+        ticker = ticker_map.get(cusip) or ph["company"][:8].upper()
+        holdings.append({
+            "ticker":        ticker,
+            "cusip":         cusip,
+            "company":       ph["company"],
+            "value":         ph["value"],   # valor del trimestre anterior
+            "shares":        0,
+            "portfolio_pct": 0.0,
+            "prev_shares":   ph["shares"],
+            "delta_shares":  -ph["shares"],
+            "activity":      "sold",
+            "put_call":      "",
+        })
+
+    if sold_cusips:
+        print("    Posiciones vendidas detectadas: {}".format(len(sold_cusips)))
 
     holdings.sort(key=lambda x: x["value"], reverse=True)
 
