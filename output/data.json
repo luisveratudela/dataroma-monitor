@@ -1,19 +1,19 @@
 {
   "meta": {
-    "generated_at": "2026-06-07T07:32:27.120212+00:00",
-    "sec_filings_period": "2026-05-15",
+    "generated_at": "2026-08-15T10:35:57.161356+00:00",
+    "sec_filings_period": "2026-08-14",
     "dataroma_managers": 0,
     "funds_verified": 8
   },
-  "quarter": "Q1 2026",
+  "quarter": "Q2 2026",
   "totalInvestors": 8,
-  "grandPortfolioValue": "365B",
+  "grandPortfolioValue": "420B",
   "consensus": [
     {
       "ticker": "AMZN",
       "company": "AMAZON COM INC",
       "sector": "Cons. Discret.",
-      "owners": 8,
+      "owners": 7,
       "activity": "hold",
       "score": 80,
       "thesis": ""
@@ -24,7 +24,16 @@
       "sector": "Comm. Services",
       "owners": 7,
       "activity": "hold",
-      "score": 72,
+      "score": 80,
+      "thesis": ""
+    },
+    {
+      "ticker": "META",
+      "company": "META PLATFORMS INC",
+      "sector": "Comm. Services",
+      "owners": 6,
+      "activity": "hold",
+      "score": 71,
       "thesis": ""
     },
     {
@@ -33,52 +42,7 @@
       "sector": "Other",
       "owners": 5,
       "activity": "hold",
-      "score": 58,
-      "thesis": ""
-    },
-    {
-      "ticker": "CRH PLC",
-      "company": "CRH PLC",
-      "sector": "Other",
-      "owners": 5,
-      "activity": "hold",
-      "score": 58,
-      "thesis": ""
-    },
-    {
-      "ticker": "AVGO",
-      "company": "BROADCOM INC",
-      "sector": "Technology",
-      "owners": 5,
-      "activity": "hold",
-      "score": 58,
-      "thesis": ""
-    },
-    {
-      "ticker": "MSFT",
-      "company": "MICROSOFT CORP",
-      "sector": "Technology",
-      "owners": 5,
-      "activity": "hold",
-      "score": 58,
-      "thesis": ""
-    },
-    {
-      "ticker": "TSM",
-      "company": "TAIWAN SEMICONDUCTOR MANUFAC",
-      "sector": "Technology",
-      "owners": 5,
-      "activity": "hold",
-      "score": 58,
-      "thesis": ""
-    },
-    {
-      "ticker": "META",
-      "company": "META PLATFORMS INC",
-      "sector": "Comm. Services",
-      "owners": 5,
-      "activity": "hold",
-      "score": 58,
+      "score": 63,
       "thesis": ""
     },
     {
@@ -87,25 +51,52 @@
       "sector": "Comm. Services",
       "owners": 5,
       "activity": "hold",
+      "score": 63,
+      "thesis": ""
+    },
+    {
+      "ticker": "TSM",
+      "company": "TAIWAN SEMICONDUCTOR MANUFAC",
+      "sector": "Technology",
+      "owners": 5,
+      "activity": "hold",
+      "score": 63,
+      "thesis": ""
+    },
+    {
+      "ticker": "AMD",
+      "company": "ADVANCED MICRO DEVICES INC",
+      "sector": "Other",
+      "owners": 4,
+      "activity": "buy",
+      "score": 62,
+      "thesis": ""
+    },
+    {
+      "ticker": "LRCX",
+      "company": "LAM RESEARCH CORP",
+      "sector": "Other",
+      "owners": 5,
+      "activity": "hold",
+      "score": 59,
+      "thesis": ""
+    },
+    {
+      "ticker": "DHI",
+      "company": "D R HORTON INC",
+      "sector": "Other",
+      "owners": 4,
+      "activity": "buy",
+      "score": 56,
+      "thesis": ""
+    },
+    {
+      "ticker": "SPY",
+      "company": "STATE STR SPDR S&P 500 ETF T",
+      "sector": "Other",
+      "owners": 4,
+      "activity": "hold",
       "score": 54,
-      "thesis": ""
-    },
-    {
-      "ticker": "INTC",
-      "company": "INTEL CORP",
-      "sector": "Other",
-      "owners": 4,
-      "activity": "buy",
-      "score": 52,
-      "thesis": ""
-    },
-    {
-      "ticker": "LITE",
-      "company": "LUMENTUM HLDGS INC",
-      "sector": "Other",
-      "owners": 4,
-      "activity": "buy",
-      "score": 51,
       "thesis": ""
     },
     {
@@ -114,16 +105,16 @@
       "sector": "Technology",
       "owners": 4,
       "activity": "hold",
-      "score": 50,
+      "score": 54,
       "thesis": ""
     },
     {
-      "ticker": "BN",
-      "company": "BROOKFIELD CORP",
-      "sector": "Other",
+      "ticker": "MSFT",
+      "company": "MICROSOFT CORP",
+      "sector": "Technology",
       "owners": 4,
       "activity": "hold",
-      "score": 50,
+      "score": 54,
       "thesis": ""
     },
     {
@@ -132,7 +123,25 @@
       "sector": "Other",
       "owners": 4,
       "activity": "hold",
-      "score": 50,
+      "score": 54,
+      "thesis": ""
+    },
+    {
+      "ticker": "AVGO",
+      "company": "BROADCOM INC",
+      "sector": "Technology",
+      "owners": 5,
+      "activity": "hold",
+      "score": 53,
+      "thesis": ""
+    },
+    {
+      "ticker": "FLEX LTD",
+      "company": "FLEX LTD",
+      "sector": "Other",
+      "owners": 3,
+      "activity": "buy",
+      "score": 53,
       "thesis": ""
     },
     {
@@ -141,43 +150,43 @@
       "sector": "Industrials",
       "owners": 4,
       "activity": "hold",
+      "score": 51,
+      "thesis": ""
+    },
+    {
+      "ticker": "DHR",
+      "company": "DANAHER CORP DEL",
+      "sector": "Other",
+      "owners": 5,
+      "activity": "hold",
+      "score": 49,
+      "thesis": ""
+    },
+    {
+      "ticker": "SPCX",
+      "company": "SPACE EXPLORATION TECHN CORP",
+      "sector": "Other",
+      "owners": 3,
+      "activity": "buy",
       "score": 48,
       "thesis": ""
     },
     {
-      "ticker": "NORWEGIA",
-      "company": "NORWEGIAN CRUISE LINE HLDGS",
+      "ticker": "CRH PLC",
+      "company": "CRH PLC",
       "sector": "Other",
-      "owners": 3,
-      "activity": "buy",
-      "score": 45,
+      "owners": 4,
+      "activity": "hold",
+      "score": 47,
       "thesis": ""
     },
     {
-      "ticker": "EWZ",
-      "company": "ISHARES INC",
-      "sector": "Other",
-      "owners": 2,
-      "activity": "buy",
-      "score": 45,
-      "thesis": ""
-    },
-    {
-      "ticker": "SNDK",
-      "company": "SANDISK CORP",
-      "sector": "Other",
-      "owners": 3,
-      "activity": "buy",
-      "score": 44,
-      "thesis": ""
-    },
-    {
-      "ticker": "LYONDELL",
-      "company": "LYONDELLBASELL INDUSTRIES NV",
-      "sector": "Other",
-      "owners": 3,
-      "activity": "buy",
-      "score": 43,
+      "ticker": "V",
+      "company": "VISA INC",
+      "sector": "Financials",
+      "owners": 4,
+      "activity": "hold",
+      "score": 46,
       "thesis": ""
     },
     {
@@ -186,7 +195,7 @@
       "sector": "Financials",
       "owners": 3,
       "activity": "hold",
-      "score": 42,
+      "score": 46,
       "thesis": ""
     },
     {
@@ -195,25 +204,43 @@
       "sector": "Technology",
       "owners": 3,
       "activity": "hold",
-      "score": 42,
+      "score": 46,
       "thesis": ""
     },
     {
-      "ticker": "SPY",
-      "company": "STATE STR SPDR S&P 500 ETF T",
-      "sector": "Other",
-      "owners": 3,
-      "activity": "hold",
-      "score": 42,
-      "thesis": ""
-    },
-    {
-      "ticker": "LRCX",
-      "company": "LAM RESEARCH CORP",
+      "ticker": "XYZ",
+      "company": "BLOCK INC",
       "sector": "Other",
       "owners": 4,
       "activity": "hold",
-      "score": 42,
+      "score": 46,
+      "thesis": ""
+    },
+    {
+      "ticker": "BN",
+      "company": "BROOKFIELD CORP",
+      "sector": "Other",
+      "owners": 3,
+      "activity": "hold",
+      "score": 46,
+      "thesis": ""
+    },
+    {
+      "ticker": "RKT",
+      "company": "ROCKET COS INC",
+      "sector": "Other",
+      "owners": 3,
+      "activity": "buy",
+      "score": 46,
+      "thesis": ""
+    },
+    {
+      "ticker": "TWST",
+      "company": "TWIST BIOSCIENCE CORP",
+      "sector": "Other",
+      "owners": 3,
+      "activity": "buy",
+      "score": 46,
       "thesis": ""
     },
     {
@@ -222,72 +249,38 @@
       "sector": "Other",
       "owners": 3,
       "activity": "hold",
-      "score": 42,
+      "score": 46,
       "thesis": ""
     },
     {
-      "ticker": "AON PLC",
-      "company": "AON PLC",
-      "sector": "Other",
-      "owners": 4,
-      "activity": "hold",
-      "score": 40,
-      "thesis": ""
-    },
-    {
-      "ticker": "HERBALIF",
-      "company": "HERBALIFE LTD",
-      "sector": "Other",
-      "owners": 2,
-      "activity": "buy",
-      "score": 40,
-      "thesis": ""
-    },
-    {
-      "ticker": "SE",
-      "company": "SEA LTD",
+      "ticker": "WBD",
+      "company": "WARNER BROS DISCOVERY INC",
       "sector": "Other",
       "owners": 3,
       "activity": "hold",
-      "score": 40,
+      "score": 46,
       "thesis": ""
     },
     {
-      "ticker": "V",
-      "company": "VISA INC",
-      "sector": "Financials",
+      "ticker": "APLD",
+      "company": "APPLIED DIGITAL CORP",
+      "sector": "Other",
+      "owners": 3,
+      "activity": "buy",
+      "score": 46,
+      "thesis": ""
+    },
+    {
+      "ticker": "SEAGATE ",
+      "company": "SEAGATE TECHNOLOGY HLDNGS PL",
+      "sector": "Other",
       "owners": 4,
       "activity": "hold",
-      "score": 39,
-      "thesis": ""
-    },
-    {
-      "ticker": "KO",
-      "company": "COCA COLA CO",
-      "sector": "Cons. Staples",
-      "owners": 3,
-      "activity": "hold",
-      "score": 39,
-      "thesis": ""
-    },
-    {
-      "ticker": "HUT",
-      "company": "HUT 8 CORP",
-      "sector": "Other",
-      "owners": 2,
-      "activity": "buy",
-      "score": 39,
+      "score": 43,
       "thesis": ""
     }
   ],
   "topBuys": [
-    {
-      "ticker": "DAL",
-      "company": "DELTA AIR LINES INC",
-      "fund": "Berkshire Hathaway",
-      "value": 2646532635,
-      "activity": "new"
-    },
     {
       "ticker": "MSFT",
       "company": "MICROSOFT CORP",
@@ -296,91 +289,70 @@
       "activity": "new"
     },
     {
-      "ticker": "GOOG",
-      "company": "ALPHABET INC",
-      "fund": "Berkshire Hathaway",
-      "value": 1028454775,
-      "activity": "new"
-    },
-    {
-      "ticker": "TSM",
-      "company": "TAIWAN SEMICONDUCTOR MANUFAC",
-      "fund": "Bridgewater",
-      "value": 363998848,
-      "activity": "new"
-    },
-    {
-      "ticker": "AON PLC",
-      "company": "AON PLC",
-      "fund": "Baupost Group",
-      "value": 248218000,
-      "activity": "new"
-    },
-    {
-      "ticker": "MLB1",
-      "company": "MERCADOLIBRE INC",
+      "ticker": "CBRS",
+      "company": "CEREBRAS SYSTEMS INC",
       "fund": "Tiger Global",
-      "value": 233428074,
+      "value": 662779000,
+      "activity": "new"
+    },
+    {
+      "ticker": "WBD",
+      "company": "WARNER BROS DISCOVERY INC",
+      "fund": "Third Point",
+      "value": 533200000,
+      "activity": "new"
+    },
+    {
+      "ticker": "AMD",
+      "company": "ADVANCED MICRO DEVICES INC",
+      "fund": "Tiger Global",
+      "value": 391955662,
+      "activity": "new"
+    },
+    {
+      "ticker": "SEAGATE ",
+      "company": "SEAGATE TECHNOLOGY HLDNGS PL",
+      "fund": "Tiger Global",
+      "value": 275121500,
       "activity": "new"
     },
     {
       "ticker": "V",
       "company": "VISA INC",
+      "fund": "Tiger Global",
+      "value": 274024954,
+      "activity": "new"
+    },
+    {
+      "ticker": "KEYS",
+      "company": "KEYSIGHT TECHNOLOGIES INC",
+      "fund": "Third Point",
+      "value": 204790950,
+      "activity": "new"
+    },
+    {
+      "ticker": "XYZ",
+      "company": "BLOCK INC",
+      "fund": "Third Point",
+      "value": 194479668,
+      "activity": "new"
+    },
+    {
+      "ticker": "FLEX LTD",
+      "company": "FLEX LTD",
+      "fund": "Third Point",
+      "value": 166932100,
+      "activity": "new"
+    },
+    {
+      "ticker": "CME",
+      "company": "CME GROUP INC",
       "fund": "Baupost Group",
-      "value": 211978000,
-      "activity": "new"
-    },
-    {
-      "ticker": "TFX",
-      "company": "TELEFLEX INCORPORATED",
-      "fund": "Baupost Group",
-      "value": 190778000,
-      "activity": "new"
-    },
-    {
-      "ticker": "IWV",
-      "company": "ISHARES TR",
-      "fund": "Gotham Asset Management",
-      "value": 106985662,
-      "activity": "new"
-    },
-    {
-      "ticker": "NUE",
-      "company": "NUCOR CORP",
-      "fund": "Bridgewater",
-      "value": 104593085,
+      "value": 136694000,
       "activity": "new"
     }
   ],
   "topSells": [
-    {
-      "ticker": "V",
-      "company": "VISA INC",
-      "fund": "Berkshire Hathaway",
-      "value": 2910002197,
-      "activity": "sold"
-    },
-    {
-      "ticker": "MA",
-      "company": "MASTERCARD INCORPORATED",
-      "fund": "Berkshire Hathaway",
-      "value": 2275897610,
-      "activity": "sold"
-    },
-    {
-      "ticker": "DPZ",
-      "company": "DOMINOS PIZZA INC",
-      "fund": "Berkshire Hathaway",
-      "value": 1396347000,
-      "activity": "sold"
-    },
-    {
-      "ticker": "UNH",
-      "company": "UNITEDHEALTH GROUP INC",
-      "fund": "Berkshire Hathaway",
-      "value": 1018278433,
-      "activity": "sold"
-    },
     {
       "ticker": "HLT",
       "company": "HILTON WORLDWIDE HLDGS INC",
@@ -389,112 +361,140 @@
       "activity": "sold"
     },
     {
-      "ticker": "FLUTTER ",
-      "company": "FLUTTER ENTMT PLC",
+      "ticker": "APP",
+      "company": "APPLOVIN CORP",
       "fund": "Tiger Global",
-      "value": 860921672,
+      "value": 398000000,
       "activity": "sold"
     },
     {
-      "ticker": "POOL",
-      "company": "POOL CORP",
-      "fund": "Berkshire Hathaway",
-      "value": 702007444,
-      "activity": "sold"
-    },
-    {
-      "ticker": "AON PLC",
-      "company": "AON PLC",
-      "fund": "Berkshire Hathaway",
-      "value": 618314219,
-      "activity": "sold"
-    },
-    {
-      "ticker": "PCG",
-      "company": "PG&E CORP",
-      "fund": "Third Point",
-      "value": 551201000,
-      "activity": "sold"
-    },
-    {
-      "ticker": "VEEV",
-      "company": "VEEVA SYS INC",
+      "ticker": "Z",
+      "company": "ZILLOW GROUP INC",
       "fund": "Tiger Global",
-      "value": 540328215,
+      "value": 304927441,
+      "activity": "sold"
+    },
+    {
+      "ticker": "WILLIS T",
+      "company": "WILLIS TOWERS WATSON PLC LTD",
+      "fund": "Baupost Group",
+      "value": 259632000,
+      "activity": "sold"
+    },
+    {
+      "ticker": "NFLX",
+      "company": "NETFLIX INC.",
+      "fund": "Tiger Global",
+      "value": 234509850,
+      "activity": "sold"
+    },
+    {
+      "ticker": "ZS",
+      "company": "ZSCALER INC",
+      "fund": "Tiger Global",
+      "value": 221625372,
+      "activity": "sold"
+    },
+    {
+      "ticker": "PCOR",
+      "company": "PROCORE TECHNOLOGIES INC",
+      "fund": "Tiger Global",
+      "value": 133351500,
+      "activity": "sold"
+    },
+    {
+      "ticker": "LITE",
+      "company": "LUMENTUM HLDGS INC",
+      "fund": "Tiger Global",
+      "value": 96137568,
+      "activity": "sold"
+    },
+    {
+      "ticker": "CB1A",
+      "company": "CONSTELLATION BRANDS INC",
+      "fund": "Berkshire Hathaway",
+      "value": 94933500,
+      "activity": "sold"
+    },
+    {
+      "ticker": "CSCO",
+      "company": "CISCO SYS INC",
+      "fund": "Bridgewater",
+      "value": 63848190,
       "activity": "sold"
     }
   ],
   "sectors": [
     {
       "name": "Other",
-      "pct": 30.5,
-      "flow": "-10.1B",
-      "trend": "sell"
+      "pct": 30.2,
+      "flow": "+1.7B",
+      "trend": "buy"
     },
     {
       "name": "Financials",
-      "pct": 22.6,
-      "flow": "-5.0B",
-      "trend": "sell"
+      "pct": 21.5,
+      "flow": "+0.3B",
+      "trend": "buy"
     },
     {
       "name": "Technology",
       "pct": 18.5,
-      "flow": "+1.6B",
+      "flow": "+2.0B",
+      "trend": "buy"
+    },
+    {
+      "name": "Comm. Services",
+      "pct": 10.6,
+      "flow": "+0.2B",
       "trend": "buy"
     },
     {
       "name": "Cons. Staples",
-      "pct": 9.8,
+      "pct": 9.5,
       "flow": "+0.0B",
       "trend": "neutral"
     },
     {
       "name": "Energy",
-      "pct": 9.0,
+      "pct": 6.4,
       "flow": "+0.0B",
       "trend": "buy"
     },
     {
-      "name": "Comm. Services",
-      "pct": 6.4,
-      "flow": "+1.1B",
-      "trend": "buy"
-    },
-    {
       "name": "Cons. Discret.",
-      "pct": 1.9,
-      "flow": "-0.5B",
-      "trend": "sell"
+      "pct": 1.6,
+      "flow": "+0.0B",
+      "trend": "neutral"
     },
     {
       "name": "Industrials",
-      "pct": 0.9,
-      "flow": "+2.6B",
+      "pct": 1.5,
+      "flow": "+0.1B",
       "trend": "buy"
     },
     {
       "name": "Healthcare",
-      "pct": 0.4,
-      "flow": "-1.0B",
-      "trend": "sell"
+      "pct": 0.1,
+      "flow": "+0.0B",
+      "trend": "buy"
     }
   ],
   "investors": [
     {
       "name": "Berkshire Hathaway",
-      "aum": "$263B",
-      "period": "2026-05-15",
+      "aum": "$299B",
+      "period": "2026-08-14",
       "top3": [
         "AXP",
-        "KO",
+        "GOOGL",
         "AAPL"
       ]
     },
     {
       "name": "Gotham Asset Management",
-      "aum": "$33B",
-      "period": "2026-05-15",
+      "aum": "$43B",
+      "period": "2026-08-14",
       "top3": [
         "SPY",
         "AAPL",
@@ -502,23 +502,23 @@
       ]
     },
     {
-      "name": "Tiger Global",
-      "aum": "$23B",
-      "period": "2026-05-15",
-      "top3": [
-        "GOOGL",
-        "NVDA",
-        "AMZN"
-      ]
-    },
-    {
       "name": "Bridgewater",
-      "aum": "$22B",
-      "period": "2026-05-15",
+      "aum": "$24B",
+      "period": "2026-08-14",
       "top3": [
         "SPY",
         "IVV",
-        "AMZN"
+        "NVDA"
+      ]
+    },
+    {
+      "name": "Tiger Global",
+      "aum": "$24B",
+      "period": "2026-08-14",
+      "top3": [
+        "TSM",
+        "AMZN",
+        "NVDA"
       ]
     },
     {
@@ -534,31 +534,31 @@
     {
       "name": "Baupost Group",
       "aum": "$5B",
-      "period": "2026-05-14",
+      "period": "2026-08-13",
       "top3": [
         "AMZN",
-        "QSR",
-        "WCC"
+        "ELV",
+        "QSR"
       ]
     },
     {
       "name": "Duquesne Family Office",
-      "aum": "$3B",
-      "period": "2026-05-15",
+      "aum": "$5B",
+      "period": "2026-08-14",
       "top3": [
         "NTRA",
-        "XLF",
-        "IM8N"
+        "TSM",
+        "STM"
       ]
     },
     {
       "name": "Third Point",
-      "aum": "$2B",
-      "period": "2026-05-15",
+      "aum": "$5B",
+      "period": "2026-08-14",
       "top3": [
-        "PCG",
-        "MSFT",
-        "AMZN"
+        "WBD",
+        "AMZN",
+        "GOOGL"
       ]
     }
   ]
